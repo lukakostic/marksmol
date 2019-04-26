@@ -1,2 +1,2 @@
 # marksmol
-Smol (small, simplified butt fully functional) version of HTML
+My small and simplified version of HTML
