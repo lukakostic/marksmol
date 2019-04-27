@@ -16,7 +16,7 @@ def parse(t):
 
         #DEBUG
     def dprint(txt):
-        if True:
+        if False:
             print(txt)
 
     def getPrevTag():

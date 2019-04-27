@@ -16,7 +16,7 @@ Also has multiline comments with { & }
 	<link rel= 'stylesheet' type= 'text/css' href= 'styles.css'></link>
 	<script src= 'Script.js'></script>
 	<script>
-	alert('Inline code!');
+		alert('Inline code!');
 	</script>
 </head>
 <body class= 'home'>
@@ -26,11 +26,9 @@ Also has multiline comments with { & }
 		</div>
 		<div class= 'mobile'>
 			<div class= 'container'>
-				
 				Hello!
 				You can write text using ` and escape them using \
 				so like this \`
-				
 			</div>
 		</div>
 	</div>
@@ -60,14 +58,14 @@ body .'home'
 		
 		div .'mobile'
 			div .'container'
-				`
-				Hello!
+				`Hello!
 				You can write text using \` and escape them using \\
-				so like this \\\`
-				`
+				so like this \\\``
 ```
 
 Seems a bit more readable, ay?
+
+The html was generated from marksmol
 
 # Usage
 Just start marksmol.py, you can then use it to generate html from marksmol (.ms) files
