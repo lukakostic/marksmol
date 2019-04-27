@@ -5,7 +5,7 @@ It uses indentations instead of <> & </>
 
 Also has multiline comments with { & }
 
-###Convert marksmol:
+##Marksmol:
 ```
 {
     This is a comment,
@@ -42,7 +42,7 @@ body .'home'
 				`
 ```
 
-###To html:
+##Html:
 ```
 <head>
 	<meta charset= 'utf-8'></meta>
