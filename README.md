@@ -56,7 +56,7 @@ Bottom one is a bit more simpler and shorter id say.
 </body>
 ```
 
-## Marksmol: 
+## Marksmol:
 ```racket
 {
 YOO
