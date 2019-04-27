@@ -122,6 +122,11 @@ def parse(t):
                 #word+='`'
                 endWord()
                 inQuotes = 0
+            elif t[l] is '\n' and inQuotes is 4:
+                #word+='`'
+                endWord()
+                endLine()
+                inQuotes = 0
             elif t[l] is "\\":
                 escapeNext = True
             else:
@@ -133,8 +138,6 @@ def parse(t):
             elif t[l] is '\n':
                 endWord()
                 endLine()
-                if inQuotes is 4:
-                    inQuotes = 0
             elif t[l] is ';':
                 endWord()
                 preInd = indentation
@@ -151,6 +154,7 @@ def parse(t):
                 endLine() #keep indentation + 1
                 indentation = preInd+1
                 inQuotes = 4
+                word = '`'
             elif t[l] is '=':
                 endWord()
                 line += '='
