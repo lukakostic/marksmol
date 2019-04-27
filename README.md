@@ -1,9 +1,6 @@
 # marksmol
 My small and simplified version of HTML, called marksmol
 
-It uses indentations instead of <> & </>
-
-Also has multiline comments with { & }
 
 ```html
 <head>
@@ -109,6 +106,8 @@ Just start marksmol.py, you can then use it to generate html from marksmol (.ms)
 
 Non-recursive mode will generate .html from all .ms in a single folder,
 recursive will do it for every folder & child folder in the root folder
+
+It uses indentations instead of <> & </>
 
 '&#35;' is turned into 'id='
 '.' is turned into 'class='
