@@ -93,4 +93,42 @@ or one line:
 { comment }
 ```
 
+Newline shortcuts:
+
+```
+a
+b
+
+==
+
+a;b
+```
+
+```
+a
+	b
+
+==
+
+a<b
+```
+
+```
+a
+	`Some Text`
+
+==
+
+a>Some Text
+
+==
+
+a<`Some Text`
+```
+
+```
+'>' adds newline + tab + string (one line)
+'<' adds newline + tab
+```
+
 Still need to add templates, multiple language versions, options and a visual studio code extension

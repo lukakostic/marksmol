@@ -133,11 +133,24 @@ def parse(t):
             elif t[l] is '\n':
                 endWord()
                 endLine()
+                if inQuotes is 4:
+                    inQuotes = 0
             elif t[l] is ';':
                 endWord()
                 preInd = indentation
                 endLine() #keep indentation
                 indentation = preInd
+            elif t[l] is '<':
+                endWord()
+                preInd = indentation
+                endLine() #keep indentation + 1
+                indentation = preInd+1
+            elif t[l] is '>':
+                endWord()
+                preInd = indentation
+                endLine() #keep indentation + 1
+                indentation = preInd+1
+                inQuotes = 4
             elif t[l] is '=':
                 endWord()
                 line += '='
