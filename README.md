@@ -36,28 +36,14 @@ head
 ```
 Bottom one is a bit more simpler and shorter id say.
 
+# More Examples:
+
 ## Html:
 ```html
-<head>
-	<meta charset= 'utf-8'></meta>
-	<meta http-equiv= 'Content-Type' content= 'text/html; charset=utf-8'></meta>
-
-	<title>
-		Some title
-	</title>
-
-	<link rel= 'stylesheet' type= 'text/css' href= 'styles.css'></link>
-
-	<script src= 'Script.js'></script>
-	<script>
-		alert('Inline code!');
-	</script>
-</head>
-
 <body class= 'home'>
 	<div id= 'main-content'>
 		<div id= 'preload' style= 'display: none;'>
-			<div class= 'kd-bounce'></div>
+			<div class= 'kd-bounce'>Yo Waddup</div>
 		</div>
 		
 		<div class= 'mobile'>
@@ -73,23 +59,14 @@ Bottom one is a bit more simpler and shorter id say.
 
 ## Marksmol:
 ```racket
-head
-    meta charset='utf-8'
-    meta http-equiv='Content-Type' content='text/html; charset=utf-8'
-    
-    title
-        `Some title`
-        
-    link rel='stylesheet' type='text/css' href='styles.css'
-    
-    script src='Script.js'
-    script
-        `alert('Inline code!');`
-
+{
+YOO
+COMMENT!
+}
 body .'home'
     div #'main-content'
         div #'preload' style='display: none;'
-            div .'kd-bounce'
+            div .'kd-bounce'>Yo Waddup
         
         div .'mobile'
             div .'container'
@@ -131,29 +108,29 @@ Newline shortcuts:
 a
 b
 
-==
+Is same as:
 
 a;b
-```
 
-```
+----------------
+
 a
 	b
 
-==
+Is same as:
 
 a<b
-```
 
-```
+----------------
+
 a
 	`Some Text`
 
-==
+Is same as:
 
 a>Some Text
 
-==
+and as:
 
 a<`Some Text`
 ```
