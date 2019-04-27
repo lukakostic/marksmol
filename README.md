@@ -1,9 +1,40 @@
 # marksmol
 My small and simplified version of HTML, called marksmol
 
-It uses indentations instead of <> & </>
 
-Also has multiline comments with { & }
+```html
+<head>
+    <meta charset= 'utf-8'></meta>
+    <meta http-equiv= 'Content-Type' content= 'text/html; charset=utf-8'></meta>
+
+    <title>
+        Some title
+    </title>
+
+    <link rel= 'stylesheet' type= 'text/css' href= 'styles.css'></link>
+
+    <script src= 'Script.js'></script>
+    <script>
+        alert('Inline code!');
+    </script>
+</head>
+```
+vs
+```racket
+head
+    meta charset='utf-8'
+    meta http-equiv='Content-Type' content='text/html; charset=utf-8'
+    
+    title
+        `Some title`
+        
+    link rel='stylesheet' type='text/css' href='styles.css'
+    
+    script src='Script.js'
+    script
+        `alert('Inline code!');`
+```
+Bottom one is a bit more simpler and shorter id say.
 
 ## Html:
 ```html
@@ -67,7 +98,6 @@ body .'home'
                 so like this \\\``
 ```
 
-Seems a bit more readable, ay?
 
 The html was generated from marksmol
 
@@ -76,6 +106,8 @@ Just start marksmol.py, you can then use it to generate html from marksmol (.ms)
 
 Non-recursive mode will generate .html from all .ms in a single folder,
 recursive will do it for every folder & child folder in the root folder
+
+It uses indentations instead of <> & </>
 
 '&#35;' is turned into 'id='
 '.' is turned into 'class='
