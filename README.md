@@ -37,7 +37,7 @@ head
     script
         `alert('Inline code!');`
 ```
-Bottom one is a bit more readable i think?
+Bottom one is a bit more simpler and shorter id say.
 
 ## Html:
 ```html
