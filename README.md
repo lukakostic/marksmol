@@ -101,7 +101,6 @@ body .'home'
                 so like this \\\``
 ```
 
-Seems a bit more readable, ay?
 
 The html was generated from marksmol
 
