@@ -19,7 +19,7 @@ My small and simplified version of HTML, called marksmol
     </script>
 </head>
 ```
-vs
+##Versus:
 ```racket
 head
     meta charset='utf-8'
