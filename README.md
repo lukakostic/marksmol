@@ -10,20 +10,25 @@ Also has multiline comments with { & }
 <head>
 	<meta charset= 'utf-8'></meta>
 	<meta http-equiv= 'Content-Type' content= 'text/html; charset=utf-8'></meta>
+
 	<title>
 		Some title
 	</title>
+
 	<link rel= 'stylesheet' type= 'text/css' href= 'styles.css'></link>
+
 	<script src= 'Script.js'></script>
 	<script>
 		alert('Inline code!');
 	</script>
 </head>
+
 <body class= 'home'>
 	<div id= 'main-content'>
 		<div id= 'preload' style= 'display: none;'>
 			<div class= 'kd-bounce'></div>
 		</div>
+		
 		<div class= 'mobile'>
 			<div class= 'container'>
 				Hello!
@@ -54,7 +59,6 @@ body .'home'
     div #'main-content'
         div #'preload' style='display: none;'
             div .'kd-bounce'
-        
         
         div .'mobile'
             div .'container'
