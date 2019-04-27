@@ -5,7 +5,7 @@ It uses indentations instead of <> & </>
 
 Also has multiline comments with { & }
 
-##Html:
+## Html:
 ```
 <head>
 	<meta charset= 'utf-8'></meta>
@@ -39,7 +39,7 @@ Also has multiline comments with { & }
 </body>
 ```
 
-##Marksmol:
+## Marksmol:
 ```
 {
     This is a comment,
@@ -78,7 +78,7 @@ body .'home'
 
 
 
-## Usage
+# Usage
 Just start marksmol.py, you can then use it to generate html from marksmol (.ms) files
 
 Non-recursive mode will generate .html from all .ms in a single folder,
