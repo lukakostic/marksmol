@@ -16,9 +16,7 @@ Also has multiline comments with { & }
 	<link rel= 'stylesheet' type= 'text/css' href= 'styles.css'></link>
 	<script src= 'Script.js'></script>
 	<script>
-		
-		alert('Inline code!');
-		
+	alert('Inline code!');
 	</script>
 </head>
 <body class= 'home'>
@@ -52,9 +50,7 @@ head
 	
 	script src='Script.js'
 	script
-		`
-		alert('Inline code!');
-		`
+		`alert('Inline code!');`
 
 body .'home'
 	div #'main-content'
