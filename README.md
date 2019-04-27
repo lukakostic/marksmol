@@ -41,10 +41,6 @@ Also has multiline comments with { & }
 
 ## Marksmol:
 ```
-{
-    This is a comment,
-    it can be multi line.
-}
 head
     meta charset='utf-8'
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
@@ -76,7 +72,7 @@ body .'home'
 				`
 ```
 
-
+Seems a bit more readable, ay?
 
 # Usage
 Just start marksmol.py, you can then use it to generate html from marksmol (.ms) files
@@ -87,5 +83,13 @@ recursive will do it for every folder & child folder in the root folder
 '&#35;' is turned into 'id='
 '.' is turned into 'class='
 (when outside strings)
+
+You can write comments with { and } :
+{
+commnet
+this too
+}
+or one line:
+{ comment }
 
 Still need to add templates, multiple language versions, options and a visual studio code extension
