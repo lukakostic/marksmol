@@ -8,16 +8,15 @@ def parse(t):
     inQuotes = 0
     inComment = False
     indentation = 0
-    #escapeNext = False
+    escapeNext = False
     tagStack = []
     rootIndentation = -1
-    literal = False
 
     t = t.replace(' '*4, '\t').replace("\r\n",'\n')
 
         #DEBUG
     def dprint(txt):
-        if False:
+        if True:
             print(txt)
 
     def getPrevTag():
@@ -31,7 +30,7 @@ def parse(t):
         return tag
 
     def endWord():
-        nonlocal code, word, tagStack, line, indentation, literal
+        nonlocal code, word, tagStack, line, indentation
         
         if word is not '' and word.isspace() is False and indentation is not -2:
             dprint('nw='+word)
@@ -45,7 +44,7 @@ def parse(t):
             if not lineEmpty:
                 line = line.rstrip(' ')
                 line += ' '
-            elif not literal:
+            elif not word.startswith('`'):
                 line += '<'
             
             line += word
@@ -56,7 +55,7 @@ def parse(t):
 
     
     def endLine():
-        nonlocal code, word, tagStack, indentation, rootIndentation, line, literal
+        nonlocal code, word, tagStack, indentation, rootIndentation, line
 
         if line.isspace() or line is '':
             indentation = 0
@@ -64,8 +63,15 @@ def parse(t):
 
         dprint(str(rootIndentation)+'nl'+str(indentation))
 
-        if not literal:
+        ptag = ''
+        if len(tagStack) > 0:
+            ptag = tagStack[-1]
+        
+        dprint('ptag:'+ptag)
+
+        if not ptag.startswith('`'):
             line += '>'
+            dprint('>ptag:'+ptag)
 
         if rootIndentation >= indentation:
             tag = getPrevTag()
@@ -97,7 +103,10 @@ def parse(t):
         
 
     for l in range(len(t)):
-        if inComment:
+        if escapeNext:
+            word += t[l]
+            escapeNext = False
+        elif inComment:
             if t[l] is '}':
                 inComment = False
         elif inQuotes > 0:
@@ -111,9 +120,10 @@ def parse(t):
                 inQuotes = 0
             elif t[l] is '`' and inQuotes is 3:
                 #word+='`'
-                literal = True
                 endWord()
                 inQuotes = 0
+            elif t[l] is "\\":
+                escapeNext = True
             else:
                 word += t[l]
         else:
@@ -131,6 +141,12 @@ def parse(t):
             elif t[l] is '=':
                 endWord()
                 line += '='
+            elif t[l] is '#':
+                endWord()
+                line =  line.rstrip(' ') +  ' id='
+            elif t[l] is '.':
+                endWord()
+                line = line.rstrip(' ') + ' class='
             elif t[l] is ' ':
                 endWord()
             elif t[l] is '{':
@@ -145,6 +161,8 @@ def parse(t):
                 endWord()
                 word = '`'
                 inQuotes = 3
+            elif t[l] is '\\':
+                escapeNext = True
             else:
                 word += t[l]
     
