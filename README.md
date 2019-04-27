@@ -40,27 +40,27 @@ Also has multiline comments with { & }
 head
     meta charset='utf-8'
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
-	
-	title
-		`Some title`
-		
-	link rel='stylesheet' type='text/css' href='styles.css'
-	
-	script src='Script.js'
-	script
-		`alert('Inline code!');`
+    
+    title
+        `Some title`
+        
+    link rel='stylesheet' type='text/css' href='styles.css'
+    
+    script src='Script.js'
+    script
+        `alert('Inline code!');`
 
 body .'home'
-	div #'main-content'
-		div #'preload' style='display: none;'
-			div .'kd-bounce'
-		
-		
-		div .'mobile'
-			div .'container'
-				`Hello!
-				You can write text using \` and escape them using \\
-				so like this \\\``
+    div #'main-content'
+        div #'preload' style='display: none;'
+            div .'kd-bounce'
+        
+        
+        div .'mobile'
+            div .'container'
+                `Hello!
+                You can write text using \` and escape them using \\
+                so like this \\\``
 ```
 
 Seems a bit more readable, ay?
