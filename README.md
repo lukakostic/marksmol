@@ -47,16 +47,15 @@ head
 	
 	title
 		`Some title`
-	
+		
 	link rel='stylesheet' type='text/css' href='styles.css'
 	
 	script src='Script.js'
-	
 	script
 		`
 		alert('Inline code!');
 		`
-		
+
 body .'home'
 	div #'main-content'
 		div #'preload' style='display: none;'
