@@ -85,11 +85,15 @@ recursive will do it for every folder & child folder in the root folder
 (when outside strings)
 
 You can write comments with { and } :
+```
 {
 commnet
 this too
 }
+```
 or one line:
+```
 { comment }
+```
 
 Still need to add templates, multiple language versions, options and a visual studio code extension
