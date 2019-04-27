@@ -6,7 +6,7 @@ It uses indentations instead of <> & </>
 Also has multiline comments with { & }
 
 ## Html:
-```
+```html
 <head>
 	<meta charset= 'utf-8'></meta>
 	<meta http-equiv= 'Content-Type' content= 'text/html; charset=utf-8'></meta>
