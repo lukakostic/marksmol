@@ -186,7 +186,7 @@ results in:
 
 ## Shortcuts:
 
-'&#35;' is turned into 'id=' and '.' is turned into 'class=' (when outside of strings)
+'&#35;' is turned into 'id=' and '.' is turned into 'class=' (when outside of strings) :
 
 ```
 a #'sumId' .'big text'
@@ -194,7 +194,7 @@ a #'sumId' .'big text'
 Is same as " a id='sumId' class='big text' "
 ```
 
-';' = newline
+';' = newline :
 
 ```
 a
@@ -206,7 +206,7 @@ a;b
 
 ```
 
-'<' = newline + tab
+'<' = newline + tab :
 
 ```
 
@@ -219,7 +219,7 @@ a<b
 
 ```
 
-'>' =  newline + tab + single text line (no ` needed)
+'>' =  newline + tab + single text line (no ` needed) :
 
 ```
 
