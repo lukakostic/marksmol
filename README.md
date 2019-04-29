@@ -1,6 +1,6 @@
 ## My small and simplified version of HTML, called marksmol
 
-Still need to add includes and dynamic generation.
+Still need to add dynamic generation.
 
 Maybe will add conditionals, error handling, multiple language versions, options and a visual studio code extension.
 
@@ -9,12 +9,12 @@ Its static atm (run a script to generate .html) but i have plans for a client si
 ## How is it better than vanilla HTML ?
 
     1. Its simpler
-        No need for </closing> tags, more readable
+        No need for <opening> and </closing> tags, more readable
     2. It has templates/macros
         Less copy-pasting, you can make a macro and re-use code!
     3. It has simpler (and multi-line!) comments
         No more single line '<!--' + '-->' comments, use multi (or single) line '{' + '}' instead!
-    4. You can include other html/marksmol files
+    4. You can include other (text/html/marksmol) files
         Have a piece of code that you keep re-using on multiple pages? Just include it!
 
 
