@@ -267,7 +267,9 @@ Include text:
 
 someText.txt
 ```
-
+This is some text.
+Lorem ipsum
+dolor sit amet!
 ```
 
 main.ms
