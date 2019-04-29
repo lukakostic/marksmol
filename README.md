@@ -194,9 +194,11 @@ a #'sumId' .'big text'
 Is same as " a id='sumId' class='big text' "
 ```
 
-    ';' = newline
-    '<' = newline + tab
-    '>' =  newline + tab + single text line (no ` needed)
+';' = newline
+
+'<' = newline + tab
+
+'>' =  newline + tab + single text line (no ` needed)
 
 ```
 a
