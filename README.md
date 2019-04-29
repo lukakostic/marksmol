@@ -152,6 +152,8 @@ and 'Hello' would become <Hello></Hello>
 
 function names must start with '$' but its variables (eg '$person') dont. Tho since it does a simple replace, its recomended to make them unique (eg dont make it 'a' as then it will replace all a's in the text. '$a' is better.)
 
+You can also use various chars for function and variable names ('$fun%ction$name_is+valid123' is a valid name)
+
 You can make nested functions:
 
 ```
