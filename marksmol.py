@@ -71,6 +71,12 @@ def parse(t,path,debug = False):
             t = t[:l+1] + '\n' + textToPaste + t[l+1:]
             
             clearFn()
+        elif funcs[-1].name == '$includeText':
+            textToPaste = pathlib.Path(funcs[-1].variables[0][1:]).read_text().replace('\r\n','\n')
+            textToPaste = '\t'*indentation + '`' + textToPaste.replace('\n','\n'+'\t'*indentation) + '`' #indent
+            t = t[:l+1] + '\n' + textToPaste + t[l+1:]
+            
+            clearFn()
         elif funcs[-1].name == '$strip':
             textToPaste = funcs[-1].variables[0].replace('\r\n','\n')
             textToPaste = textToPaste.rstrip('`').lstrip('`').rstrip('\`').lstrip('\`')

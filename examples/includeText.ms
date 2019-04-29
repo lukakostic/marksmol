@@ -1,0 +1,2 @@
+a
+	$includeText `someText.txt`:
