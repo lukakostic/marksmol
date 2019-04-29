@@ -18,7 +18,7 @@ Maybe will add conditionals, error handling, multiple language versions, options
 
 All that in a single python script without any package dependencies!
 
-```racket
+```slim
 head
     meta charset='utf-8'
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
@@ -34,7 +34,7 @@ head
 
 compiles to:
 
-```slim
+```html
 <head>
     <meta charset= 'utf-8'></meta>
     <meta http-equiv= 'Content-Type' content= 'text/html; charset=utf-8'></meta>
@@ -56,7 +56,7 @@ compiles to:
 # More Examples:
 
 ## Html:
-```html
+```slim
 <body class= 'home'>
 	<div id= 'main-content'>
 		<div id= 'preload' style= 'display: none;'>
@@ -75,7 +75,7 @@ compiles to:
 ```
 
 ## Marksmol:
-```racket
+```slim
 body .'home'
     div #'main-content'
         div #'preload' style='display: none;'
@@ -101,7 +101,7 @@ It uses indentations instead of <> & </>
 
 
 You can write comments with { and } :
-```
+```slim
 {
 this is a
 multi-line comment
@@ -123,7 +123,7 @@ comment
 
 ## Templates/Macros
 
-```
+```slim
 $hi $person $action:
 `\`Hello $person, nice to $action you!\``
 
@@ -156,7 +156,7 @@ You can also use various chars for function and variable names ('$fun%ction$name
 
 You can make nested functions:
 
-```
+```slim
 $hi $person $action:
 `$post \`Hi $person, nice to $action you!\`:`
 
@@ -187,7 +187,7 @@ results in:
 
 '>' =  single line literal (all chars passed) :
 
-```
+```slim
 $hi $text:
 `\`Hi $text!\``
 
@@ -204,7 +204,7 @@ a
 : in new line because > scans whole line
 
 
-```
+```slim
 $join $a $b:
 `\`$a$b\``
 
@@ -239,7 +239,7 @@ a< $join `Some` `Text`:
 You can use $include like a macro, and give it a path. It will copy paste the contents, indented.
 
 macro.ms:
-```
+```slim
 $p $text:
 `div
     p
@@ -247,7 +247,7 @@ $p $text:
 ```
 
 main.ms:
-```
+```slim
 $include `macro.ms`:
 
 body
@@ -256,7 +256,7 @@ body
 ```
 
 results in:
-```
+```slim
 body
     div
         p
@@ -273,14 +273,14 @@ dolor sit amet!
 ```
 
 main.ms
-```
+```slim
 a
 	$includeText `someText.txt`:
 ```
 
 results in:
 
-```
+```slim
 a
     `	This is some text.
 	Lorem ipsum
@@ -291,7 +291,7 @@ a
 
 '&#35;' is turned into 'id=' and '.' is turned into 'class=' (when outside of strings) :
 
-```
+```slim
 a #'sumId' .'big text'
 
 Is same as " a id='sumId' class='big text' "
@@ -299,7 +299,7 @@ Is same as " a id='sumId' class='big text' "
 
 ';' = newline :
 
-```
+```slim
 a
 b
 
@@ -311,7 +311,7 @@ a;b
 
 '<' = newline + tab :
 
-```
+```slim
 
 a
 	`Some Text`
