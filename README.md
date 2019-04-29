@@ -264,6 +264,28 @@ body
             `Hey`
 ```
 
+Include text:
+
+someText.txt
+```
+
+```
+
+main.ms
+```
+a
+	$includeText `someText.txt`:
+```
+
+results in:
+
+```
+a
+    `	This is some text.
+	Lorem ipsum
+	dolor sit amet!`
+```
+
 ## Shortcuts:
 
 '&#35;' is turned into 'id=' and '.' is turned into 'class=' (when outside of strings) :
