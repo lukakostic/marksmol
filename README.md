@@ -188,9 +188,14 @@ results in:
 
 '&#35;' is turned into 'id=' and '.' is turned into 'class=' (when outside of strings)
 
-';' = newline,
- '<' = newline + tab,
-  '>' =  newline + tab + single text line (no ` needed):
+```
+a #'sumId' .'big text'
+    `This is same as <a id='sumId' class='big text'>`
+```
+
+    ';' = newline
+    '<' = newline + tab
+    '>' =  newline + tab + single text line (no ` needed)
 
 ```
 a
