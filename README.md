@@ -3,6 +3,17 @@
 Still need to add includes, multiple language versions, options and a visual studio code extension
 
 
+## How is it better than vanilla HTML ?
+
+    1. Its simpler
+        No need for </closing> tags, more readable
+    2. It has templates/macros
+        Less copy-pasting, you can make a macro and re-use code!
+    3. It has simpler (and multi-line!) comments
+        No more single line '<!--' + '-->' comments, use multi (or single) line '{' + '}' instead!
+    4. You can include other html/marksmol files //Not yet done
+        Have a piece of code that you keep re-using on multiple pages? Just include it!
+
 ```html
 <head>
     <meta charset= 'utf-8'></meta>
