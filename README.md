@@ -15,6 +15,7 @@ Maybe will add conditionals, error handling, multiple language versions, options
     4. You can include other (text/html/marksmol) files
         Have a piece of code that you keep re-using on multiple pages? Just include it!
 
+All that in a single python script without any package dependencies!
 
 ```racket
 head
