@@ -75,10 +75,6 @@ compiles to:
 
 ## Marksmol:
 ```racket
-{
-YOO
-COMMENT!
-}
 body .'home'
     div #'main-content'
         div #'preload' style='display: none;'
@@ -109,54 +105,25 @@ It uses indentations instead of <> & </>
 You can write comments with { and } :
 ```
 {
-commnet
-this too
+this is a
+multi-line comment
+}
+
+
+{ single-line comment }
+
+
+{
+this is a
+{
+nested
+}
+comment
 }
 ```
-or one line:
-```
-{ comment }
-```
 
-Newline shortcuts:
 
-```
-a
-b
-
-Is same as:
-
-a;b
-
-----------------
-
-a
-	b
-
-Is same as:
-
-a<b
-
-----------------
-
-a
-	`Some Text`
-
-Is same as:
-
-a>Some Text
-
-and as:
-
-a<`Some Text`
-```
-
-```
-'>' adds newline + tab + string (one line)
-'<' adds newline + tab
-```
-
-## Templates/Functions
+## Templates/Macros
 
 ```
 $hi $person $action:
@@ -216,4 +183,44 @@ results in:
 		</a>
 	</post>
 </test>
+```
+
+## Newline shortcuts:
+
+```
+a
+b
+
+Is same as:
+
+a;b
+
+```
+```
+
+a
+	b
+
+Is same as:
+
+a<b
+
+```
+```
+
+a
+	`Some Text`
+
+Is same as:
+
+a>Some Text
+
+and as:
+
+a<`Some Text`
+```
+
+```
+'>' adds newline + tab + string (one line)
+'<' adds newline + tab
 ```
