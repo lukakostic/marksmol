@@ -14,6 +14,7 @@ Maybe will add conditionals, error handling, multiple language versions, options
         No more single line '<!--' + '-->' comments, use multi (or single) line '{' + '}' instead!
     4. You can include other (text/html/marksmol) files
         Have a piece of code that you keep re-using on multiple pages? Just include it!
+    5. Easy to extend, improve and modify!
 
 All that in a single python script without any package dependencies!
 
