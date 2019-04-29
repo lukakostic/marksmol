@@ -56,7 +56,7 @@ compiles to:
 # More Examples:
 
 ## Html:
-```slim
+```html
 <body class= 'home'>
 	<div id= 'main-content'>
 		<div id= 'preload' style= 'display: none;'>
@@ -132,7 +132,7 @@ test
 	$hi `Bob` `see`:
 ```
 results in:
-```
+```html
 <test>
 	Hello Luka, nice to meet you!
 	Hello Bob, nice to see you!
@@ -170,7 +170,7 @@ test
 	$hi `Bob` `see`:
 ```
 results in:
-```
+```html
 <test>
 	<post>
 		<a>
