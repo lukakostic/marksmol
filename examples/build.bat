@@ -1,0 +1,1 @@
+py %cd%\..\marksmol.py --folder %cd% --rec y --debug y

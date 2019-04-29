@@ -1,8 +1,10 @@
 ## My small and simplified version of HTML, called marksmol
 
-Still need to add includes, multiple language versions, options and a visual studio code extension
+Still need to add includes and dynamic generation.
 
-Its static atm (run a script to generate .html) but i have plans for a client side dynamic generator
+Maybe will add conditionals, error handling, multiple language versions, options and a visual studio code extension.
+
+Its static atm (run a script to generate .html) but i have plans for a client side dynamic generator.
 
 ## How is it better than vanilla HTML ?
 
