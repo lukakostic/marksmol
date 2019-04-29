@@ -3,7 +3,8 @@ import os
 import pathlib
 
 
-def parse(t,debug = False):
+def parse(t,path,debug = False):
+    os.chdir(path)
     #Current strings
     code = ''
     word = ''
@@ -50,50 +51,78 @@ def parse(t,debug = False):
             return retTag
         return tag
 
+    def clearFn():
+            nonlocal funcs,inFunc,textNext,funcFirst
+            funcs.pop()
+            
+            inFunc = False
+            textNext = False
+            funcFirst = True
+            return
+
     def funcEnd(l):
         nonlocal code, word, tagStack, line, indentation, inFunc, funcFirst, funcs, textNext, t
         
         fnInd = -1
 
-        for x in range(len(funcs)):
-            #dprint('search ['+str(x)+'] name: |' + funcs[x].name + '| vs |' + funcs[-1].name + '|')
-            if funcs[x].name == funcs[-1].name:
-                fnInd = x
-                break
-                
-
-        dprint('fnInd : ' + str(fnInd))
-        
-        if fnInd is (len(funcs)-1) or fnInd is -1:
-            #Is new
-            dprint('fn is new')
-
-            textNext = True
-        else:
-            #Do function stuff
-            dprint('fn is old')
-            
-            textToPaste = funcs[fnInd].text.replace('\r\n','\n')
-
+        if funcs[-1].name == '$include':
+            textToPaste = pathlib.Path(funcs[-1].variables[0][1:]).read_text().replace('\r\n','\n')
             textToPaste = '\t'*indentation + textToPaste.replace('\n','\n'+'\t'*indentation) #indent
-
-            #dprint('FUNCTION TEXT:\n' + textToPaste)
-
-            #replace var names with var values
-            for i in range(len(funcs[-1].variables)):
-                textToPaste = textToPaste.replace(funcs[fnInd].variables[i],funcs[-1].variables[i][1:])
-
             t = t[:l+1] + '\n' + textToPaste + t[l+1:]
             
-            #dprint('FUNCTION TEXT RESULT:\n' + textToPaste)
+            clearFn()
+        elif funcs[-1].name == '$strip':
+            textToPaste = funcs[-1].variables[0].replace('\r\n','\n')
+            textToPaste = textToPaste.rstrip('`').lstrip('`').rstrip('\`').lstrip('\`')
+            textToPaste = '\t'*indentation + textToPaste.replace('\n','\n'+'\t'*indentation) #indent
+            t = t[:l+1] + '\n' + textToPaste + t[l+1:]
+            
+            clearFn()
+        elif funcs[-1].name == '$str':
+            textToPaste = funcs[-1].variables[0].replace('\r\n','\n')
+            textToPaste = textToPaste.rstrip('`').lstrip('`').rstrip('\`').lstrip('\`')
+            textToPaste = '\t'*indentation + textToPaste.replace('\n','\n'+'\t'*indentation) #indent
+            t = t[:l+1] + '\n' + '`' + textToPaste + '`' + t[l+1:]
+            
+            clearFn()
+        else:
 
-            #dprint('FUNCTION RESULT:\n' + t)
+            for x in range(len(funcs)):
+                #dprint('search ['+str(x)+'] name: |' + funcs[x].name + '| vs |' + funcs[-1].name + '|')
+                if funcs[x].name == funcs[-1].name:
+                    fnInd = x
+                    break
+                    
 
-            funcs.pop()
+            dprint('fnInd : ' + str(fnInd))
+            
+            if fnInd is (len(funcs)-1) or fnInd is -1:
+                #Is new
+                dprint('fn is new')
 
-            inFunc = False
-            textNext = False
-            funcFirst = True
+                textNext = True
+            else:
+                #Do function stuff
+                dprint('fn is old')
+                
+                textToPaste = funcs[fnInd].text.replace('\r\n','\n')
+
+                textToPaste = '\t'*indentation + textToPaste.replace('\n','\n'+'\t'*indentation) #indent
+
+                #dprint('FUNCTION TEXT:\n' + textToPaste)
+
+                #replace var names with var values
+                for i in range(len(funcs[-1].variables)):
+                    #dprint(funcs[fnInd].variables[i] + ' replaced w: ' + funcs[-1].variables[i][1:])
+                    textToPaste = textToPaste.replace(funcs[fnInd].variables[i],funcs[-1].variables[i][1:])
+
+                t = t[:l+1] + '\n' + textToPaste + t[l+1:]
+                
+                #dprint('\n\n\nFUNCTION TEXT REPLACED:\n' + textToPaste + '\n\n')
+
+                #dprint('\n\nFUNCTION T RESULT:\n' + t + '\n\n')
+
+                clearFn()
 
     def endWord():
         nonlocal code, word, tagStack, line, indentation, inFunc, funcFirst, funcs, textNext
@@ -172,8 +201,11 @@ def parse(t,debug = False):
             if tag.startswith('`') is False:
                 code += '\t'*rootIndentation+'</' + tag + '>\n'
             
+        
+        if line.startswith('`'):
+            line = line[1:]
 
-        code += '\t' * indentation + line.lstrip('`') + '\n'
+        code += '\t' * indentation + line + '\n'
 
 
 
@@ -181,6 +213,8 @@ def parse(t,debug = False):
         if indentation > rootIndentation:
             rootIndentation = indentation
         indentation = 0
+
+    dprint("\n\n        Parsing in: " + path)
 
     l = 0
     while l < len(t):
@@ -211,7 +245,13 @@ def parse(t,debug = False):
                 textNext = False
             elif t[l] is '\n' and inQuotes is 4:
                 #word+='`'
+                #endWord()
+                #endLine()
+                
+                
+                #t = t[:l+1] + word + t[l+1:]
                 endWord()
+                #word = ''
                 endLine()
                 inQuotes = 0
             elif t[l] is "\\":
@@ -248,8 +288,8 @@ def parse(t,debug = False):
             elif t[l] is '>':
                 endWord()
                 preInd = indentation
-                endLine() #keep indentation + 1
-                indentation = preInd+1
+                endLine() #keep indentation
+                indentation = preInd
                 inQuotes = 4
                 word = '`'
             elif t[l] is '=':
@@ -294,7 +334,7 @@ def parse(t,debug = False):
 def main():
     folder = ''
     rec = ''
-    debug = False
+    debug = 'y'
 
     for x in range(len(sys.argv)):
         if sys.argv[x] == '--folder':
@@ -322,7 +362,7 @@ def main():
     for f in files:
         txt = pathlib.Path(f).read_text()
         file = open(os.path.splitext(f)[0]+'.html','w')
-        file.write(parse(txt,debug))
+        file.write(parse(txt,folder,debug))
         print(file.name)
         file.close()
 

@@ -14,7 +14,7 @@ Its static atm (run a script to generate .html) but i have plans for a client si
         Less copy-pasting, you can make a macro and re-use code!
     3. It has simpler (and multi-line!) comments
         No more single line '<!--' + '-->' comments, use multi (or single) line '{' + '}' instead!
-    4. You can include other html/marksmol files //Not yet done
+    4. You can include other html/marksmol files
         Have a piece of code that you keep re-using on multiple pages? Just include it!
 
 
@@ -186,6 +186,57 @@ results in:
 </test>
 ```
 
+'>' =  single line literal (all chars passed) :
+
+```
+$hi $text:
+`\`Hi $text!\``
+
+a
+	$hi >Hello!
+:
+```
+
+: in new line because > scans whole line
+
+Is same as:
+
+```
+a
+	$hi `Hello!`:
+	
+```
+
+
+## Including:
+
+You can use $include like a macro, and give it a path. It will copy paste the contents, indented.
+
+macro.ms:
+```
+$p $text:
+`div
+    p
+        $text`
+```
+
+main.ms:
+```
+$include `macro.ms`:
+
+body
+    $p `\`Hey\``:
+
+```
+
+results in:
+```
+body
+    div
+        p
+            `Hey`
+```
+
 ## Shortcuts:
 
 '&#35;' is turned into 'id=' and '.' is turned into 'class=' (when outside of strings) :
@@ -213,28 +264,10 @@ a;b
 ```
 
 a
-	b
-
-Is same as:
-
-a<b
-
-```
-
-'>' =  newline + tab + single text line (no ` needed) :
-
-```
-
-a
 	`Some Text`
 
 Is same as:
 
-a>Some Text
-
-and as:
-
 a<`Some Text`
+
 ```
-
-
