@@ -34,7 +34,7 @@ head
 
 compiles to:
 
-```html
+```slim
 <head>
     <meta charset= 'utf-8'></meta>
     <meta http-equiv= 'Content-Type' content= 'text/html; charset=utf-8'></meta>
