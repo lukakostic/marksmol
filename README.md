@@ -99,8 +99,8 @@ recursive will do it for every folder & child folder in the root folder
 It uses indentations instead of <> & </>
 
 '&#35;' is turned into 'id='
-'.' is turned into 'class='
-(when outside strings)
+
+'.' is turned into 'class=' (when outside of strings)
 
 You can write comments with { and } :
 ```
