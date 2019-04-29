@@ -22,8 +22,7 @@ head
     meta charset='utf-8'
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
     
-    title
-        `Some title`
+    title < `Some title`
         
     link rel='stylesheet' type='text/css' href='styles.css'
     
