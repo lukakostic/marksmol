@@ -190,7 +190,8 @@ results in:
 
 ```
 a #'sumId' .'big text'
-    `This is same as <a id='sumId' class='big text'>`
+
+Is same as " a id='sumId' class='big text' "
 ```
 
     ';' = newline
