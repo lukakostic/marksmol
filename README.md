@@ -196,10 +196,6 @@ Is same as " a id='sumId' class='big text' "
 
 ';' = newline
 
-'<' = newline + tab
-
-'>' =  newline + tab + single text line (no ` needed)
-
 ```
 a
 b
@@ -209,6 +205,9 @@ Is same as:
 a;b
 
 ```
+
+'<' = newline + tab
+
 ```
 
 a
@@ -219,6 +218,9 @@ Is same as:
 a<b
 
 ```
+
+'>' =  newline + tab + single text line (no ` needed)
+
 ```
 
 a
