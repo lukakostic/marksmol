@@ -120,7 +120,7 @@ def parse(t,path,debug = False):
                 
                 #dprint('\n\n\nFUNCTION TEXT REPLACED:\n' + textToPaste + '\n\n')
 
-                #dprint('\n\nFUNCTION T RESULT:\n' + t + '\n\n')
+                dprint('\n\nFUNCTION T RESULT:\n' + t + '\n\n')
 
                 clearFn()
 
@@ -259,7 +259,7 @@ def parse(t,path,debug = False):
             else:
                 word += t[l]
         else:
-            if t[l] is '\t':
+            if t[l] is '\t' and not inFunc:
                 endWord()
                 indentation += 1
             elif t[l] is '\n':
@@ -316,7 +316,7 @@ def parse(t,path,debug = False):
                 endWord()
                 word = '`'
                 inQuotes = 3
-            elif t[l] is '\\':
+            elif t[l] is '\\' and inQuotes is not 4:
                 escapeNext = True
             else:
                 word += t[l]

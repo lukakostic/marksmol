@@ -193,18 +193,45 @@ $hi $text:
 `\`Hi $text!\``
 
 a
-	$hi >Hello!
+	$hi >Bob
 :
+
+{same as:}
+
+a
+	$hi `Bob`:
 ```
 
 : in new line because > scans whole line
 
-Is same as:
 
 ```
+$join $a $b:
+`\`$a$b\``
+
 a
-	$hi `Hello!`:
-	
+    $join >Some
+	> Text
+	:
+
+{same as:}
+
+a
+    $join >Some
+	> Text
+:
+
+{indentation doesnt matter after the function name ($join) till :}
+
+{same as:}
+
+a
+    $join `Some` `Text`:
+
+{same as:}
+
+a< $join `Some` `Text`:
+
 ```
 
 
