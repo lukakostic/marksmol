@@ -188,7 +188,9 @@ results in:
 
 '&#35;' is turned into 'id=' and '.' is turned into 'class=' (when outside of strings)
 
-';' adds newline, '<' adds newline + tab while '>' also parses single text line(no ` needed):
+';' = newline,
+ '<' = newline + tab,
+  '>' =  newline + tab + single text line (no ` needed):
 
 ```
 a
