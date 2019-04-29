@@ -2,6 +2,7 @@
 
 Still need to add includes, multiple language versions, options and a visual studio code extension
 
+Its static atm (run a script to generate .html) but i have plans for a client side dynamic generator
 
 ## How is it better than vanilla HTML ?
 
@@ -13,6 +14,24 @@ Still need to add includes, multiple language versions, options and a visual stu
         No more single line '<!--' + '-->' comments, use multi (or single) line '{' + '}' instead!
     4. You can include other html/marksmol files //Not yet done
         Have a piece of code that you keep re-using on multiple pages? Just include it!
+
+
+```racket
+head
+    meta charset='utf-8'
+    meta http-equiv='Content-Type' content='text/html; charset=utf-8'
+    
+    title
+        `Some title`
+        
+    link rel='stylesheet' type='text/css' href='styles.css'
+    
+    script src='Script.js'
+    script
+        `alert('Inline code!');`
+```
+
+compiles to:
 
 ```html
 <head>
@@ -31,22 +50,7 @@ Still need to add includes, multiple language versions, options and a visual stu
     </script>
 </head>
 ```
-### Versus: 
-```racket
-head
-    meta charset='utf-8'
-    meta http-equiv='Content-Type' content='text/html; charset=utf-8'
-    
-    title
-        `Some title`
-        
-    link rel='stylesheet' type='text/css' href='styles.css'
-    
-    script src='Script.js'
-    script
-        `alert('Inline code!');`
-```
-Bottom one is a bit more simpler and shorter id say.
+
 
 # More Examples:
 
