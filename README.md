@@ -1,4 +1,4 @@
-## My small and simplified version of HTML, called marksmol
+## Small & Simple HTML: called marksmol
 
 Its static atm (run a script to generate .html) but i have plans for a client side dynamic generator.
 
